@@ -1,17 +1,22 @@
+import 'dart:ui';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
+import 'package:flutter/rendering.dart';
 import 'package:spotify_app/constant/app_colors.dart';
 import 'package:spotify_app/gen/fonts.gen.dart';
-import 'package:spotify_app/screens/choose_gender_screen.dart';
 
 import '../component/next_button_component.dart';
 import '../component/text_field_component.dart';
+import 'choose_name_screen.dart';
 
-class PasswordScreen extends StatelessWidget {
-   PasswordScreen({super.key});
-final TextEditingController passwordTextController = TextEditingController();
+class ChooseGenderScreen extends StatelessWidget {
+  ChooseGenderScreen({super.key});
+final TextEditingController genderTextController = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.sizeOf(context);
     return SafeArea(
       child: Scaffold(
         backgroundColor: AppColors.mainColor,
@@ -34,27 +39,20 @@ final TextEditingController passwordTextController = TextEditingController();
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Text(
-                'Create a password',
+                'What’s your gender?',
                 style: TextStyle(
                     fontFamily: FontFamily.avenirBold,
                     fontSize: 20,
                     color: AppColors.textColorWhite),
               ),
-               TextFieldComponent(textEditingController: passwordTextController,),
-              const Text(
-                'Use at least 8 characters.',
-                style: TextStyle(
-                    fontFamily: FontFamily.avenirBold,
-                    fontSize: 8,
-                    color: AppColors.textColorWhite),
-              ),
+               TextFieldComponent(textEditingController: genderTextController,),
               const SizedBox(
-                height: 35,
+                height: 20,
               ),
               NextButtonComponent(
                 onPressed: () {
                   Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) =>  ChooseGenderScreen(),
+                    builder: (context) => ChooseNameScreen(),
                   ));
                 },
               )

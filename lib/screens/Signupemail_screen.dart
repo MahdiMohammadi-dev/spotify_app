@@ -1,15 +1,13 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:spotify_app/constant/app_colors.dart';
 import 'package:spotify_app/gen/fonts.gen.dart';
 import 'package:spotify_app/screens/password_screen.dart';
-
 import '../component/next_button_component.dart';
 import '../component/text_field_component.dart';
 
 class SignupEmailScreen extends StatelessWidget {
-  const SignupEmailScreen({super.key});
-
+   SignupEmailScreen({super.key});
+final TextEditingController emailTextController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -40,7 +38,7 @@ class SignupEmailScreen extends StatelessWidget {
                     fontSize: 20,
                     color: AppColors.textColorWhite),
               ),
-              const TextFieldComponent(),
+               TextFieldComponent(textEditingController: emailTextController,),
               const Text(
                 'You’ll need to confirm this email later.',
                 style: TextStyle(
@@ -52,7 +50,7 @@ class SignupEmailScreen extends StatelessWidget {
                 height: 35,
               ),
               NextButtonComponent(onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(builder: (context) => const PasswordScreen(),));
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) =>  PasswordScreen(),));
               },)
             ],
           ),

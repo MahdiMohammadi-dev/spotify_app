@@ -76,7 +76,7 @@ class WelcomePage extends StatelessWidget {
                   child: ElevatedButton(
                     onPressed: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const SignupEmailScreen(),
+                        builder: (context) =>  SignupEmailScreen(),
                       ));
                     },
                     style: ElevatedButton.styleFrom(
